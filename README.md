@@ -15,6 +15,23 @@ For a more detailed description of the libraries see the [VXL book](http://publi
 
 VXL is developed and used by an [international](http://vxl.sourceforge.net/developers.html) team from academia and industry, including some of the world's leading computer vision experts.
 
+## Building VXL on Brown CCV Oscars
+
+``bash
+cmake .. \        
+  -DCMAKE_BUILD_TYPE=Release \
+  -DBOXM2_USE_VOLM=OFF \
+  -DBUILD_CONTRIB=ON \
+  -DBUILD_RPL=OFF \
+  -DBUILD_TESTING=OFF \
+  -DBUILD_CORE_VIDEO=OFF \
+  -DBUILD_CUL=OFF \
+  -DBUILD_DOCUMENTATION=OFF \
+  -DBUILD_FOR_VXL_DASHBOARD=OFF \
+  -DVNL_CONFIG_LEGACY_METHODS=ON \
+  -DVXL_FORCE_B3P_EXPAT=ON \
+``
+
 ## Documentation
 Documentation on the whole of VXL
 There are two main references for information on the whole of VXL:
