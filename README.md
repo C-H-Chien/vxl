@@ -41,9 +41,9 @@ cmake .. \
 ```
 Alternatively, using `ccmake ..` would enable you to see and control all the settings. Once CMake files are generated, compile the code with
 ```
-make -k -j{bproc}
+make -k -j{nproc}
 ```
-so that errors arising from the `contrib` (and maybe other folders) could be ignored. This is fine for now in support of the shock graph code.
+so that errors arising from the `contrib` (and maybe other folders) could be ignored. This is fine for now in support of the shock graph code. `{nproc}` can be any integer depending on the number of (CPU) cores you are using. However, the past experience is that `{nproc}` should be no more than 2 to avoid compilation conflicts from parallel threads (_e.g._, the ccplus1 fatal error).
 
 ## Documentation
 Documentation on the whole of VXL
