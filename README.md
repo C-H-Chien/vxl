@@ -15,9 +15,17 @@ For a more detailed description of the libraries see the [VXL book](http://publi
 
 VXL is developed and used by an [international](http://vxl.sourceforge.net/developers.html) team from academia and industry, including some of the world's leading computer vision experts.
 
-## Building VXL on Brown CCV Oscars
+## Introduction to v-1.18.0-patch
+This version is (massively) different from the original vxl-1.18.0 in a sense that it is used to support the [shock graph code](https://github.com/Brown-LEMS/iShockComputation). It has been built and tested on Brown University CCV Oscars server. 
 
-``bash
+## Building on Brown CCV Oscars
+
+Building this v-1.18.0-patch requires some changes in the CMake settings. Specifically, after cloning this repo, start by the standard CMake build process with creating a `build` folder:
+```
+mkdir build && cd build
+```
+Then build the code with the following settings:
+```
 cmake .. \        
   -DCMAKE_BUILD_TYPE=Release \
   -DBOXM2_USE_VOLM=OFF \
@@ -30,7 +38,12 @@ cmake .. \
   -DBUILD_FOR_VXL_DASHBOARD=OFF \
   -DVNL_CONFIG_LEGACY_METHODS=ON \
   -DVXL_FORCE_B3P_EXPAT=ON \
-``
+```
+Alternatively, using `ccmake ..` would enable you to see and control all the settings. Once CMake files are generated, compile the code with
+```
+make -k -j{bproc}
+```
+so that errors arising from the `contrib` (and maybe other folders) could be ignored. This is fine for now in support of the shock graph code.
 
 ## Documentation
 Documentation on the whole of VXL
